@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Glock45/Handgun_dae.dae" type="PackedScene" id=1]
+[ext_resource path="res://Models/Glock45/handgun.material" type="Material" id=2]
+
+[node name="Glock45" instance=ExtResource( 1 )]
+
+[node name="Gun" parent="." index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Gun_trigger" parent="Gun" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.130818, 0.241, -3.36256e-09 )
+
+[node name="muzzle_fire" parent="Gun" index="1"]
+transform = Transform( -0.000100017, 0, -3.98565e-12, 0, 0.000100017, 0, 8.74376e-12, 0, -4.55905e-05, 0.802757, 0.498395, -1.49012e-07 )
+visible = false
+
+[node name="Cube_005" parent="Gun" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="muni_rot" parent="Gun" index="4"]
+transform = Transform( -0.00542867, -0.0281706, -0.999588, 0.601542, 0.798425, -0.0257682, 0.798822, -0.601435, 0.0126113, -0.294347, 0.518242, 0.0526848 )
+
+[node name="hulle" parent="." index="1"]
+visible = false
+
+[node name="Cube_002" parent="." index="2"]
+visible = false
+
+[node name="bullet_light" parent="." index="3"]
+visible = false
+
+[node name="bullet" parent="." index="4"]
+visible = false
+
+[node name="Point" parent="." index="5"]
+visible = false
+
+[node name="Point_001" parent="." index="6"]
+visible = false

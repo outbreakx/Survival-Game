@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interactable/Interactable.gd" type="Script" id=1]
+[ext_resource path="res://Models/Ak47/AK-47.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.21328, 1, 1 )
+
+[node name="Ak47" type="Node"]
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+collision_layer = 2
+script = ExtResource( 1 )
+item = "ak47"
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 3.93923, -0.260472, 0, 0.694593, 1.47721, 0, 0, 0, 0.2, 0.0866504, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody/CollisionShape"]
+transform = Transform( 0.246202, 0.043412, 0, -0.115765, 0.656538, 0, 0, 0, 5, -0.0213335, 0.0100311, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null

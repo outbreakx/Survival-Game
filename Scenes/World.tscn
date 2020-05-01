@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Interactable/Interactable.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/PickableItems/Cube.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/PickableItems/Glock45.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/PickableItems/Ak47.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 25, 0.1, 25 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -12.5, 0.05, 12.5, 12.5, 0.05, 12.5, -12.5, -0.05, 12.5, 12.5, 0.05, 12.5, 12.5, -0.05, 12.5, -12.5, -0.05, 12.5, 12.5, 0.05, -12.5, -12.5, 0.05, -12.5, 12.5, -0.05, -12.5, -12.5, 0.05, -12.5, -12.5, -0.05, -12.5, 12.5, -0.05, -12.5, 12.5, 0.05, 12.5, 12.5, 0.05, -12.5, 12.5, -0.05, 12.5, 12.5, 0.05, -12.5, 12.5, -0.05, -12.5, 12.5, -0.05, 12.5, -12.5, 0.05, -12.5, -12.5, 0.05, 12.5, -12.5, -0.05, -12.5, -12.5, 0.05, 12.5, -12.5, -0.05, 12.5, -12.5, -0.05, -12.5, 12.5, 0.05, 12.5, -12.5, 0.05, 12.5, 12.5, 0.05, -12.5, -12.5, 0.05, 12.5, -12.5, 0.05, -12.5, 12.5, 0.05, -12.5, -12.5, -0.05, 12.5, 12.5, -0.05, 12.5, -12.5, -0.05, -12.5, 12.5, -0.05, 12.5, 12.5, -0.05, -12.5, -12.5, -0.05, -12.5 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 1, 0.1, 2 )
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( -0.5, 0.05, 1, 0.5, 0.05, 1, -0.5, -0.05, 1, 0.5, 0.05, 1, 0.5, -0.05, 1, -0.5, -0.05, 1, 0.5, 0.05, -1, -0.5, 0.05, -1, 0.5, -0.05, -1, -0.5, 0.05, -1, -0.5, -0.05, -1, 0.5, -0.05, -1, 0.5, 0.05, 1, 0.5, 0.05, -1, 0.5, -0.05, 1, 0.5, 0.05, -1, 0.5, -0.05, -1, 0.5, -0.05, 1, -0.5, 0.05, -1, -0.5, 0.05, 1, -0.5, -0.05, -1, -0.5, 0.05, 1, -0.5, -0.05, 1, -0.5, -0.05, -1, 0.5, 0.05, 1, -0.5, 0.05, 1, 0.5, 0.05, -1, -0.5, 0.05, 1, -0.5, 0.05, -1, 0.5, 0.05, -1, -0.5, -0.05, 1, 0.5, -0.05, 1, -0.5, -0.05, -1, 0.5, -0.05, 1, 0.5, -0.05, -1, -0.5, -0.05, -1 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.2, 1, 0.2 )
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -0.1, 0.5, 0.1, 0.1, 0.5, 0.1, -0.1, -0.5, 0.1, 0.1, 0.5, 0.1, 0.1, -0.5, 0.1, -0.1, -0.5, 0.1, 0.1, 0.5, -0.1, -0.1, 0.5, -0.1, 0.1, -0.5, -0.1, -0.1, 0.5, -0.1, -0.1, -0.5, -0.1, 0.1, -0.5, -0.1, 0.1, 0.5, 0.1, 0.1, 0.5, -0.1, 0.1, -0.5, 0.1, 0.1, 0.5, -0.1, 0.1, -0.5, -0.1, 0.1, -0.5, 0.1, -0.1, 0.5, -0.1, -0.1, 0.5, 0.1, -0.1, -0.5, -0.1, -0.1, 0.5, 0.1, -0.1, -0.5, 0.1, -0.1, -0.5, -0.1, 0.1, 0.5, 0.1, -0.1, 0.5, 0.1, 0.1, 0.5, -0.1, -0.1, 0.5, 0.1, -0.1, 0.5, -0.1, 0.1, 0.5, -0.1, -0.1, -0.5, 0.1, 0.1, -0.5, 0.1, -0.1, -0.5, -0.1, 0.1, -0.5, 0.1, 0.1, -0.5, -0.1, -0.1, -0.5, -0.1 )
+
+[node name="World" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2148, 3.17687, 6.60579 )
+
+[node name="Ground" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="CubeItem" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28195, -6.75837 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="CubeItem"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CubeItem/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Table" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -5.985, 1, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Table"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Table/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="Leg" type="MeshInstance" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394119, -0.471271, 0.892387 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Table/Leg"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Table/Leg/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Leg2" type="MeshInstance" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394119, -0.471271, -0.903332 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Table/Leg2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Table/Leg2/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Leg3" type="MeshInstance" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386225, -0.471271, -0.903332 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Table/Leg3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Table/Leg3/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Leg4" type="MeshInstance" parent="Table"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386225, -0.471271, 0.889091 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Table/Leg4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Table/Leg4/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Cube" parent="." instance=ExtResource( 3 )]
+
+[node name="Glock45" parent="." instance=ExtResource( 4 )]
+
+[node name="Ak47" parent="." instance=ExtResource( 5 )]

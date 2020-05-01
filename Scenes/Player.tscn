@@ -1,0 +1,220 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://crosshair.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Hud.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Shotgun.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/InteractRayCast.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/SpawnItem.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=6]
+[ext_resource path="res://Prefabs/Glock45.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
+[ext_resource path="res://barHorizontal_red.png" type="Texture" id=9]
+[ext_resource path="res://barBackground.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/StatsManager.gd" type="Script" id=11]
+[ext_resource path="res://barHorizontal_green.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/InventoryManager.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/HoldingItems.gd" type="Script" id=14]
+[ext_resource path="res://Prefabs/Ak47.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/HoldingItemManager.gd" type="Script" id=16]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.75
+height = 1.25
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.75
+mid_height = 1.25
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69049, 0 )
+script = ExtResource( 8 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+
+[node name="WeaponRayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -100 )
+
+[node name="InteractionRayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -2.5 )
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="aimPosition" type="MeshInstance" parent="Head/Camera"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.125, -0.7 )
+
+[node name="Weapon" type="Spatial" parent="Head/Camera"]
+transform = Transform( -3.25841e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, -3.25841e-08, 0.2, -0.12, -0.7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Rifle" type="Spatial" parent="Head/Camera/Weapon"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HandGun" type="Spatial" parent="Head/Camera/Weapon"]
+
+[node name="Item" type="Spatial" parent="Head/Camera/Weapon"]
+
+[node name="Weapon2" type="Spatial" parent="Head/Camera"]
+transform = Transform( -3.25841e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, -3.25841e-08, 0.2, -0.12, -0.7 )
+visible = false
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Rifle" type="Spatial" parent="Head/Camera/Weapon2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Ak47" parent="Head/Camera/Weapon2/Rifle" instance=ExtResource( 15 )]
+
+[node name="HandGun" type="Spatial" parent="Head/Camera/Weapon2"]
+
+[node name="Glock45" parent="Head/Camera/Weapon2/HandGun" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, -1.7053e-13, 0, 1, 0, 1.7053e-13, 0, 1, 0, 0, 0 )
+
+[node name="Item" type="Spatial" parent="Head/Camera/Weapon2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Hud" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
+
+[node name="Ammo" type="Label" parent="Hud"]
+anchor_right = 0.02
+anchor_bottom = 0.058
+margin_left = 922.492
+margin_top = 538.12
+margin_right = 942.012
+margin_bottom = 517.32
+text = "10/10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fps" type="Label" parent="Hud"]
+margin_left = 964.0
+margin_top = 23.0
+margin_right = 980.0
+margin_bottom = 37.0
+text = "60"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crosshair" type="Sprite" parent="Hud"]
+texture = ExtResource( 1 )
+
+[node name="Pick" type="Label" parent="Hud"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "(E) to pickup"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="Hud"]
+margin_right = 250.0
+margin_bottom = 20.0
+value = 100.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirstBar" type="TextureProgress" parent="Hud"]
+margin_right = 250.0
+margin_bottom = 20.0
+value = 100.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 12 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="SpawnItem" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="StatsManager" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="StatsTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+
+[node name="Bag" type="ColorRect" parent="Inventory"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -243.008
+margin_top = -206.845
+margin_right = 246.992
+margin_bottom = 213.155
+color = Color( 0.419608, 0.419608, 0.419608, 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="Inventory/Bag"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 20.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoldingItems" type="ColorRect" parent="Inventory"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -208.0
+margin_top = -70.0
+margin_right = 208.0
+margin_bottom = -20.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 0.117647 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryManager" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="HoldingItemManager" type="Node" parent="."]
+script = ExtResource( 16 )
+[connection signal="timeout" from="StatsTimer" to="." method="_on_StatsTimer_timeout"]
