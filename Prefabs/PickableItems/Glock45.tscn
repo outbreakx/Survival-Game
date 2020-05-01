@@ -5,10 +5,10 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="Glock45" type="Node"]
+[node name="Glock45" type="Spatial"]
 
 [node name="RigidBody" type="RigidBody" parent="."]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.55891, 3, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 collision_layer = 2
 script = ExtResource( 2 )
 item = "glock45"

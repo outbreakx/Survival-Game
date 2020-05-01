@@ -34,11 +34,9 @@ func on_change_slot(old_slot, new_slot):
 		if old_id != null and new_id != null:
 			break
 	
-	print("old:", old_id)
-	print("new_id:", new_id)
-
+	print("clicked in slots %d to %d" % [old_id, new_id])
 	if old_id != null and new_id != null and slots[old_id].get_node("SlotImage").texture != null:
-		print("trocar slot")
+		print("changed slot %d to %d" % [old_id, new_id])
 		"""
 		var temp = slots[old_id].get_node("SlotImage").texture
 		slots[old_id].get_node("SlotImage").texture = slots[new_id].get_node("SlotImage").texture

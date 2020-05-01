@@ -6,7 +6,7 @@ onready var pick = $"../../../Hud/Pick"
 const inventory_item = preload("res://Scripts/InventoryItem.gd")
 
 func _ready():
-	populate_inventory()
+	#populate_inventory()
 	pass
 
 func _process(delta):

@@ -9,7 +9,6 @@ var last_state = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(weapon.get_children())
 	clear_holding()
 	pass # Replace with function body.
 

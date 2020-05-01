@@ -16,7 +16,7 @@ func _process(delta):
 		
 
 func _on_Area2D_mouse_entered():
-	print("mouse entrou")
+	#print("mouse has entered")
 	mouseIn = true
 	pass # Replace with function body.
 

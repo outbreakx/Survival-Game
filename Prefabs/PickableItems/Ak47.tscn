@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 1.21328, 1, 1 )
 
-[node name="Ak47" type="Node"]
+[node name="Ak47" type="Spatial"]
 
 [node name="RigidBody" type="RigidBody" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 item = "ak47"
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
-transform = Transform( 3.93923, -0.260472, 0, 0.694593, 1.47721, 0, 0, 0, 0.2, 0.0866504, 0, 0 )
+transform = Transform( 3.93923, -0.260472, 0, 0.694593, 1.47721, 0, 0, 0, 0.2, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody/CollisionShape"]

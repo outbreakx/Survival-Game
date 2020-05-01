@@ -107,7 +107,10 @@ material/0 = null
 shape = SubResource( 8 )
 
 [node name="Cube" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -1 )
 
 [node name="Glock45" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 1 )
 
 [node name="Ak47" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0.2 )
