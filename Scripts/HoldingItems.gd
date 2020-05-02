@@ -10,7 +10,6 @@ export var backgroundColor = "#143e3e3e"
 
 func _ready():
 	var pos  = Vector2(marginLeft, 0)
-	print("foi chamado")
 	for i in range(column):
 		var item = slot.instance()
 		item.rect_position = Vector2(pos.x, pos.y)

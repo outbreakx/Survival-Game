@@ -16,7 +16,6 @@ func clear_items():
 func update():
 	var index = 0
 	for item in InventoryManager.get_items():
-		print("index: %s %s" % [index, item])
 		if item != null and slots[index]:
 			slots[index].get_node("SlotImage/Count").text = str(item.amount)
 			slots[index].get_node("SlotImage").texture = item.texture

@@ -54,6 +54,16 @@ func get_item(index):
 	if index >= 0 and index < max_inventory + max_holding_items:
 		return items[index]
 	return null
-
+func update_item(index, amount = 1):
+	if index >= 0 and index < max_inventory + max_holding_items:
+		if amount <= 0:
+			remove_item(index)
+		else:
+			items[index].amount = amount
+	
+func remove_item(index):
+	if index >= 0 and index < max_inventory + max_holding_items:
+		items[index].queue_free()
+		items[index] = null
 func get_items():
 	return items
