@@ -7,3 +7,7 @@ You can follow the progress of the game [here](https://www.notion.so/Survival-Ga
 
 # Why the art of the game is so poor? 
 I have no skills to develop the game art, so those assets that i use are free and available in the internet. In case you want to help me with the art, try to contact me.
+
+# How to run this thing?
+
+Just clone this project or download and open it with the godot engine. Currently using godot 3.2.
