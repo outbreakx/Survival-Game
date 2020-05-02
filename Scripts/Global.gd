@@ -31,8 +31,13 @@ func resume_game():
 	global.remove_child(menu_scene)
 	root.add_child(current_scene)
 
+func reset_inventory():
+	InventoryUi.clear_items()
+	InventoryManager.clear_items()
+	
 func new_game():
 	current_scene.queue_free()
+	reset_inventory()
 	current_scene = world_scene.instance()
 	root.add_child(current_scene)
 

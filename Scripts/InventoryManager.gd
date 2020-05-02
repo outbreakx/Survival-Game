@@ -9,8 +9,14 @@ var items = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#items.resize(max_inventory + max_holding_items)
+	clear_items()
+func clear_items(): 
+	for item in items:
+		if item != null:
+			item.queue_free()
+	items = []
 	items.resize(max_inventory + max_holding_items)
-
 func add_item(item, amount = 1):
 	var first_empty = -1
 	var id = -1
