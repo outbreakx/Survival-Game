@@ -2,6 +2,9 @@ extends Node
 
 var items = {}
 
+"""
+id
+"""
 
 func _ready():
 	items["cube"] = {

@@ -19,11 +19,15 @@ var ySwaySmoothAmount = 2
 var aimFov = null
 var defaultFov = null
 
+onready var bullet = preload("res://Prefabs/Bullet.tscn")
+
+
 onready var aimingPosition = $"../Head/Camera/aimPosition"
 onready var camera = $"../Head/Camera"
 onready var raycast = $"../Head/Camera/WeaponRayCast"
 onready var ammo = $"../Hud/Ammo"
 onready var weapon = $"../Head/Camera/Weapon"
+onready var cross = $"../Hud/Crosshair"
 
 var reloading = false
 var isAiming = false
@@ -65,6 +69,9 @@ func weapon_sway(event):
 
 func shot():
 	if Input.is_action_just_pressed("primary_fire") and can_fire:
+		var bu = bullet.instance()	
+		bu.get_node("RigidBody").transform.origin = weapon.transform.origin 
+		self.add_child(bu)
 		if current_ammo > 0 and !reloading:
 			current_ammo -= 1
 			can_fire = false
@@ -80,6 +87,7 @@ func shot():
 			reloading = false
 	elif Input.is_action_just_pressed("primary_aim"):
 		isAiming = !isAiming
+
 func update_text():
 	if reloading:
 		ammo.set_text("Reloading....")
@@ -88,6 +96,10 @@ func update_text():
 
 
 func run_process(delta):
+	if isAiming:
+		cross.visible = false
+	else:
+		cross.visible = true
 	update_text()
 	weapon_movement(delta)
 	check_collision()

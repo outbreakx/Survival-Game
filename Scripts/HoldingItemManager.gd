@@ -12,41 +12,29 @@ var last_state = ""
 func _ready():
 	current_slot = null
 	clear_holding()
-	pass # Replace with function body.
 
 func clear_holding():
 	for item in weapon.get_children():
 		for temp in item.get_children():
 			temp.queue_free()
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
-func _process(delta):
+func _input(event):
 	for i in range(ending_index - starting_index):
 		var item_index = starting_index + i
-		if Input.is_action_just_pressed("item_%s" % str(i + 1)):
+		if event.is_action_pressed("item_%s" % str(i + 1)):
 			current_slot = starting_index + i
 			# clear what the player is holding.
 			clear_holding()
 			var item = InventoryManager.get_item(item_index)
 			if item != null:
 				if item.type == "weapon":
-					match(item.weapon_type):
-						"HandGun":
-							var instance = ItemsData.items[item.item].prefab.instance()
-							weapon.get_node(item.weapon_type).add_child(instance)
-							pass
-						"Rifle":
-							var instance = ItemsData.items[item.item].prefab.instance()
-							weapon.get_node(item.weapon_type).add_child(instance)
-							pass
+					var instance = ItemsData.items[item.item].prefab.instance()
+					weapon.get_node(item.weapon_type).add_child(instance)
 				else:
 					var instance = ItemsData.items[item.item].prefab.instance()
 					weapon.get_node("Item").add_child(instance)
 
-	if Input.is_action_just_pressed("drop_item") and current_slot:
+	if event.is_action_pressed("drop_item") and current_slot:
 		var item = InventoryManager.get_item(current_slot)
 		if item:
 			# if holding anythying, drop it.
